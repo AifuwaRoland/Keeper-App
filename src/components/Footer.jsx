@@ -5,6 +5,7 @@ function Footer() {
 
         <footer>
             <p>Copyright © {date} </p>
+            <p>Made by Roland O. Aifuwa</p>
         </footer>
 
     );
