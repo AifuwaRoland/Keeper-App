@@ -9,6 +9,10 @@ html {
 body {
   background: #eee;
   padding: 0 16px;
+  background-color: #008c41;
+  background-color: #fafafa;
+  background-image: url("https://www.transparenttextures.com/patterns/use-your-illusion.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 header {
