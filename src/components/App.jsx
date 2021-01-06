@@ -14,8 +14,16 @@ function App() {
 
         setNotes(prevNotes => { // get previous note 
             return [...prevNotes, newNote]; // add new note  at the end
-        
-        })
+
+        });
+    }
+
+    function deleteNote(id) {
+        setNotes(prevNotes => {
+            return prevNotes.filter((noteItem, index) => {
+                return index !== id;
+            });
+        });
     }
     return (
         <div>
@@ -23,10 +31,14 @@ function App() {
             <CreateArea
                 onAdd={addNote}
             />
-            {notes.map(noteItem => { //loop through notes array 
+            {notes.map((noteItem, index) => { //loop through notes array 
 
-                return <Note title={noteItem.title}
-                    content={noteItem.content} />
+                return <Note
+                    key={index}
+                    id={index}
+                    title={noteItem.title}
+                    content={noteItem.content}
+                    onDelete={deleteNote} />
             })}
 
             <Footer />
