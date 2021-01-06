@@ -5,6 +5,8 @@ import Zoom from '@material-ui/core/Zoom';
 
 
 function CreateArea(props) {
+
+  const [isExpanded, setExpanded]=useState(false);
   const [note, setNote] = useState({
     title: "",
     content: ""
@@ -29,22 +31,30 @@ function CreateArea(props) {
     });
     event.preventDefault();
   }
-
+  function expand() {
+    setExpanded(true);
+  }
   return (
     <div>
       <form className="create-note">
-        <input
-          name="title"
-          onChange={handleChange}
-          value={note.title}
-          placeholder="Title"
-        />
+        {isExpanded && (
+
+
+          <input
+            name="title"
+            onChange={handleChange}
+            value={note.title}
+            placeholder="Title"
+          />
+        )}
         <textarea
           name="content"
+          onClick={expand}
+
           onChange={handleChange}
           value={note.content}
           placeholder="Take a note..."
-          rows="3"
+          rows={isExpanded ? 3: 1}
         />
 
         <Zoom in={true}>
